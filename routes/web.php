@@ -14,7 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
-//显示phpinfo。
+//显示phpinfo
 Route::get('/phpinfo',function(){
     phpinfo();
 });
