@@ -18,3 +18,4 @@ Route::get('/', function () {
 Route::get('/phpinfo',function(){
     phpinfo();
 });
+Route::get('test/redis','TestController@testRedis');
