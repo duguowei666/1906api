@@ -19,8 +19,14 @@ Route::get('/phpinfo',function(){
     phpinfo();
 });
 //测试
-Route::get('test/redis','TestController@testRedis');
 
+Route::prefix('test')->group(function (){
+    Route::get('/redis','TestController@testRedis');
+    Route::get('/wx','TestController@token');
+    Route::get('/curl','TestController@curl1');
+    Route::get('/curl2','TestController@curl2');
+    Route::get('/guzzle','TestController@guzzle1');
+});
 //api
 Route::prefix('api')->group(function (){
     Route::get('/user/info','Api\UserController@info');
