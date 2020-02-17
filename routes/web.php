@@ -29,6 +29,7 @@ Route::prefix('test')->group(function (){
     Route::any('/post1','TestController@post1');
     Route::any('/post2','TestController@post2');
 });
+Route::get('/goods','GoodsController@shop');
 //api
 Route::prefix('api')->group(function (){
     Route::get('/user/info','Api\UserController@info');
