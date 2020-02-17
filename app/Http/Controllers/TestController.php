@@ -90,4 +90,14 @@ class TestController extends Controller
         $data = $res->getBody();    //获取响应的数据
         echo $data;
     }
+
+    public function post1(){
+        echo '开始';echo '<hr>';
+        print_r($_POST);
+    }
+    public function post2(){
+        echo '<hr>';
+        $data = file_get_contents('php://input');
+        var_dump($data);
+    }
 }

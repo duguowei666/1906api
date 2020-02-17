@@ -26,6 +26,8 @@ Route::prefix('test')->group(function (){
     Route::get('/curl','TestController@curl1');
     Route::get('/curl2','TestController@curl2');
     Route::get('/guzzle','TestController@guzzle1');
+    Route::any('/post1','TestController@post1');
+    Route::any('/post2','TestController@post2');
 });
 //api
 Route::prefix('api')->group(function (){
