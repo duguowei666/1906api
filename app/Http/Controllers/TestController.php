@@ -100,4 +100,11 @@ class TestController extends Controller
         $data = file_get_contents('php://input');
         var_dump($data);
     }
+    public function getUrl(){
+        $scheme = $_SERVER['REQUEST_SCHEME'];       //协议
+        $host = $_SERVER['HTTP_HOST'];      //域名
+        $uri = $_SERVER['REQUEST_URI'];     //uri
+        $url = $scheme . '://' . $host . $uri;
+        echo '当前url:'. $url;
+    }
 }
