@@ -30,6 +30,8 @@ Route::prefix('test')->group(function (){
     Route::any('/post2','TestController@post2');
     Route::get('/geturl','TestController@getUrl');
     Route::get('/redis1','TestController@redis1');
+    Route::get('/api1','TestController@api1')->middleware('api.filter');
+    Route::get('/api2','TestController@api2')->middleware('api.filter');
 
 });
 Route::get('/goods','GoodsController@shop');

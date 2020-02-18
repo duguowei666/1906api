@@ -122,4 +122,10 @@ class TestController extends Controller
         echo '正常'.$count;echo '<br>';
 
     }
+    public function api1(){
+        echo 111;
+    }
+    public function api2(){
+        echo 222;
+    }
 }
