@@ -107,4 +107,19 @@ class TestController extends Controller
         $url = $scheme . '://' . $host . $uri;
         echo '当前url:'. $url;
     }
+    public function redis1(){
+
+        $max = env('COUNT');
+        $key = 'count';
+        $number = Redis::get($key);
+        echo '现有访问次数:'.$number;echo '<br>';
+        if($number > $max){
+            echo '超过访问次数'.$max;die;
+        }
+        //技术
+
+        $count = Redis::incr($key);
+        echo '正常'.$count;echo '<br>';
+
+    }
 }
