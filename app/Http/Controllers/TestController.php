@@ -128,4 +128,37 @@ class TestController extends Controller
     public function api2(){
         echo 222;
     }
+    //发送签名
+    public function md5test(){
+        $key = '1906';      //发送方和接收方使用同一个key
+        $str = $_GET['str'];       //代签名数据
+        echo '当前签名的数据：'.$str;
+        echo '<br>';
+        //计算签名  原始数据+key
+        $sign = md5($str.$key);
+        echo '计算的签名：'.$sign;
+    }
+    public function md5test1(){
+        $key = '1906';
+        $data = $_GET['data'];      //接收到的数据
+        $sign = $_GET['sign'];      //接收到的签名
+        //验签 需要于发送端使用相同的规则
+        $sign2 = md5($data.$key);
+        echo '接收端计算的签名：'.$sign2;echo '<br>';
+        if($sign2 == $sign){
+            echo '验签通过';
+        }else{
+            echo '验签没过';
+        }
+    }
+    //获取天气
+    public function weather(){
+        $city = $_GET['city'];
+//        $url = 'https://api.heweather.net/s6/weather/now?location='.$city.'&key=f1b31ff0b537474bb0786b777fea8671';
+        $url = 'https://free-api.heweather.net/s6/weather/now?location='.$city.'&key=f1b31ff0b537474bb0786b777fea8671';
+        $res = file_get_contents($url);
+        $arr = json_decode($res,true);
+
+        print_r($arr);
+    }
 }

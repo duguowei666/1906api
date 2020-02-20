@@ -32,6 +32,9 @@ Route::prefix('test')->group(function (){
     Route::get('/redis1','TestController@redis1');
     Route::get('/api1','TestController@api1')->middleware('api.filter');
     Route::get('/api2','TestController@api2')->middleware('api.filter');
+    Route::get('/md5test','TestController@md5test');
+    Route::get('/md5test1','TestController@md5test1');
+    Route::get('/weather','TestController@weather');
 
 });
 Route::get('/goods','GoodsController@shop');
